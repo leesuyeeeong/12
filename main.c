@@ -4,24 +4,36 @@
 
 #define MAX_NAME     28
 
-struct student {
-	int ID;
-	char name[MAX_NAME];
-	double grade;
+struct point{
+	int x;
+	int y;
 };
-	
-int main (int argc, const char * argv[]) {
-	struct student student1 = {1003, "Suyeong", 4.3};
-	
-	student1.ID = 1913839;
-	strcpy(student1.name, "Suyeong");
-	student1.grade = 3.3;
 
-	printf("ID : %d\n", student1.ID);
-	printf("name : %s\n", student1.name);
-	printf("grade : %f\n", student1.grade);
+int main (int argc, const char * argv[]) {
+	
+	struct point p1, p2;
+	int xdiff, ydiff;
+	double dist;
+
+	printf("input p1 coordinate (x y) : ");
+	scanf("%d %d", &p1.x, &p1.y);
+
+	printf("input p2 coordinate (x y) : ");
+	scanf("%d %d", &p2.x, &p2.y);
+	
+	// p1, p2간 거리를 계산하고 출력
+	//math.h의 sqrt() 함수 활용
+	
+	//calculate xdiff 
+	xdiff = p2.x - p1.x;
+	
+	//calculate ydiff 
+	ydiff = p2.y - p1.y;
+	
+	//피타고라스 정리 sqrt(xdiff*2 +ydiff*2) -> dist
+	dist = sqrt(xdiff*xdiff +ydiff*ydiff);
+	
+	printf("distance : %lf\n", dist);
 	
 	return 0;
 }
-
-
